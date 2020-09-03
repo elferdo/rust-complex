@@ -1,4 +1,4 @@
-use std::ops::{Add, Mul, Deref};
+use std::ops::{Add, Mul};
 
 use super::complex::{Cartesian, Polar, Complex};
 use super::im::{Im};
@@ -40,7 +40,7 @@ impl Add<Im> for Real {
     }
 }
 
-impl Complex<Real> for Real {
+impl Complex for Real {
     fn real(&self) -> f32 {
         self.r
     }

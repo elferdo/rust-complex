@@ -1,12 +1,11 @@
 use std::f32::consts::{FRAC_PI_2, FRAC_PI_4};
-use std::ops::Add;
-use std::cmp::PartialEq;
 use super::complex::{Complex, Cartesian, Polar};
-use super::real::{Real, real};
-use super::im::{Im, im};
-use super::exp::exp;
 
+#[cfg(test)]
+use super::real::real;
 
+#[cfg(test)]
+use super::im::im;
 
 #[test]
 fn addition_when_real_positive_and_im_positive() {

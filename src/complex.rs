@@ -1,9 +1,9 @@
-use std::f32::consts::{FRAC_PI_4, FRAC_PI_2, PI};
+use std::f32::consts::PI;
 use std::ops::{Add, Mul};
 use std::convert::From;
 
 //pub trait Complex<T: Complex<T> = Self> : Add<T> + PartialEq + std::marker::Sized {
-pub trait Complex<T> : Add<T> + Mul<T> + PartialEq + std::marker::Sized {
+pub trait Complex : Add + Mul + PartialEq + std::marker::Sized {
     fn real(&self) -> f32;
     fn im(&self) -> f32;
     fn argument(&self) -> f32;
@@ -45,7 +45,7 @@ impl Mul for Cartesian {
     }
 }
 
-impl Complex<Self> for Cartesian {
+impl Complex for Cartesian {
     fn real(&self) -> f32 {
         self.r
     }
@@ -132,7 +132,7 @@ impl Mul<Cartesian> for Polar {
     }
 }
 
-impl Complex<Self> for Polar {
+impl Complex for Polar {
     fn real(&self) -> f32 {
         self.module * self.argument.cos()
     }
@@ -171,6 +171,9 @@ impl From<Polar> for Cartesian {
         Cartesian{r: real, i: im}
     }
 }
+
+#[cfg(test)]
+use std::f32::consts::{FRAC_PI_2, FRAC_PI_4};
 
 #[test]
 fn cartesian() {

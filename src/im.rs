@@ -32,7 +32,7 @@ impl Add<Real> for Im {
     }
 }
 
-impl Complex<Im> for Im {
+impl Complex for Im {
     fn real(&self) -> f32 {
         0.0
     }

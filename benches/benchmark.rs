@@ -9,7 +9,7 @@ fn bench_spiral_cartesian(c: &mut Criterion) -> std::io::Result<()> {
         b.iter(|| {
             let mut c = Cartesian{r: 1.0, i: 0.0};
 
-            for n in 0..1000 {
+            for _ in 0..1000 {
                 c = (c * Polar{argument: 0.1, module: 1.01}).into();
 
             }
@@ -24,8 +24,8 @@ fn bench_spiral_polar(c: &mut Criterion) -> std::io::Result<()> {
         b.iter(|| {
             let mut c = Polar{argument: 0.0, module: 0.0};
 
-            for n in 0..1000 {
-                c = (c * Polar{argument: 0.1, module: 1.01});
+            for _ in 0..1000 {
+                c = c * Polar{argument: 0.1, module: 1.01};
 
                 black_box(c);
             }

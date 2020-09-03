@@ -1,7 +1,5 @@
 extern crate rust_complex;
 
-use rust_complex::real::real;
-use rust_complex::im::im;
 use rust_complex::complex::{Cartesian, Complex, Polar};
 
 
@@ -15,6 +13,6 @@ fn main() {
 
         let r = p + center;
 
-     //   println!("{} {}", r.real(), r.im());
+        println!("{} {}", r.real(), r.im());
     }
 }
